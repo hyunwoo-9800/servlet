@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 
 <html>
 
 	<head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
+		<meta charset="UTF-8">
+		<title>이미지</title>
 	</head>
-
+	
 	<body>
-		<h1>여긴 어디? 난 누구?</h1>
+		<img alt="이미지" src="./image/image.jpg">
+		<img alt="이미지" src="./image/image.png">
 	</body>
 
 </html>
