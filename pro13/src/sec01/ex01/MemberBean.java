@@ -26,5 +26,5 @@ public class MemberBean {
 		this.email = email;
 
 	}
-
+	
 } // class 끝
