@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+h2 {
+	text-align: center;
+}
+
+nav ul {
+	list-style-type: none;
+	padding: 0;
+	width: 500px;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+
+nav li {
+	padding: 12px 15px;
+	background-color: #f8f8f8;
+	margin-bottom: 8px;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	transition: background-color 0.2s;
+}
+
+nav li:hover {
+	background-color: #f0f0f0;
+}
+
+nav li.completed {
+	text-decoration: line-through;
+	color: #888;
+}
