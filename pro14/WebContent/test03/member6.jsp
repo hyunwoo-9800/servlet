@@ -20,7 +20,10 @@
 	<body>
 	
 		<c:forEach var="i" begin="1" end="10" step="1" varStatus="loop">
+	    i =  ${i}   &nbsp;&nbsp;&nbsp;  인덱스: ${loop.index} <br>
 	    i =  ${i}   &nbsp;&nbsp;&nbsp;  반복횟수: ${loop.count} <br>
+	    i =  ${i}   &nbsp;&nbsp;&nbsp;  첫번째: ${loop.first} <br>
+	    i =  ${i}   &nbsp;&nbsp;&nbsp;  마지막: ${loop.last} <br>
 		</c:forEach>
 		
 		<br>
