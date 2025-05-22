@@ -4,7 +4,7 @@ h2 {
 	text-align: center;
 }
 
-nav ul {
+ul {
 	list-style-type: none;
 	padding: 0;
 	width: 500px;
@@ -12,7 +12,7 @@ nav ul {
   	margin-right: auto;
 }
 
-nav li {
+li {
 	padding: 12px 15px;
 	background-color: #f8f8f8;
 	margin-bottom: 8px;
@@ -22,11 +22,11 @@ nav li {
 	transition: background-color 0.2s;
 }
 
-nav li:hover {
+li:hover {
 	background-color: #f0f0f0;
 }
 
-nav li.completed {
+li.completed {
 	text-decoration: line-through;
 	color: #888;
 }
