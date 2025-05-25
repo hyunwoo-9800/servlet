@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+/* 할 일 목록 추가용 */
+.add-form {
+	margin: 0 auto; /* 화면 가운데 정렬 */
+	max-width: 800px; width : 800px;
+	margin-bottom: 15px;
+	display: flex;
+	width: 800px;
+}
+
+.add-form input {
+	flex-grow: 1;
+	padding: 10px;
+	font-size: 16px;
+	border: 1px solid #ddd;
+	border-radius: 4px 0 0 4px;
+}
+
+.add-form button {
+	padding: 10px 15px;
+	background-color: #4caf50;
+	color: white;
+	border: none;
+	border-radius: 0 4px 4px 0;
+	cursor: pointer;
+}
+
+.add-form button:hover {
+	background-color: #45a049;
+}

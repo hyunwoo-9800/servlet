@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+.todo-list {
+	max-width: 800px;
+	width: 800px;
+	margin: 0 auto; /* 화면 가운데 정렬 */
+	list-style-type: none;
+	padding: 0;
+}
+
+.todo-list li {
+	padding: 12px 15px;
+	background-color: #f8f8f8;
+	margin-bottom: 8px;
+	border-radius: 4px;
+	display: flex;
+	justify-content: space-between; /* 왼쪽은 할 일 텍스트, 오른쪽은 삭제 버튼 */
+	align-items: center; /* 세로 중앙 정렬 */
+	transition: background-color 0.2s;
+	align-items: center;
+}
+
+/* 할 일 텍스트와 상태 텍스트를 한 줄로 붙게끔 */
+.todo-item-content {
+	display: flex;
+	align-items: center; /* 세로 중앙 정렬 */
+	gap: 8px; /* 두 텍스트 사이의 간격을 줄여줌 */
+}
+
+.status-text {
+	margin-right: 400px; /* 간격 줄이기 */
+}
+
+.todo-list li:hover {
+	background-color: #f0f0f0;
+}
+
+.todo-list li.completed {
+	text-decoration: line-through;
+	color: #888;
+}
+
+/* 삭제 버튼 */
+.todo-actions {
+	display: flex;
+	justify-content: flex-end; /* 오른쪽 끝으로 정렬 */
+	align-items: center; /* 세로 중앙 정렬 */
+}
+
+.todo-actions button {
+	background-color: #6936f4;
+	border: none;
+	cursor: pointer;
+	font-size: 14px;
+	padding: 5px 8px;
+	margin-left: 5px;
+	border-radius: 3px;
+	color: white;
+}
+
+/* .delete-btn {
+    color: white;
+  } */
+.delete-btn:hover {
+	/* background-color: rgba(244, 67, 54, 0.1); */
+	background-color: rgba(238, 54, 244, 0.1);
+}
