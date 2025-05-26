@@ -50,6 +50,8 @@ public class TodoController {
 
 		todo.setContent(content);
 		todo.setStatus("0"); // 기본값: 미완료
+		
+		System.out.println("입력된 내용: " + content);
 
 		service.insertItem(todo);
 

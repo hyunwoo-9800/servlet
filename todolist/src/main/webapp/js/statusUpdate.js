@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				// 상태 변경 요청 (완료/미완료)
 				fetch(window.contextPath + "/todo/updateStatus", {
 					method: 'POST',
-					headers: { 'Content-Type': 'application/json' },
+					headers: { 'Content-Type': 'application/json; charset utf-8;' },
 					body: JSON.stringify({ itemNum: itemNum })
 				})
 					.then(response => response.json())

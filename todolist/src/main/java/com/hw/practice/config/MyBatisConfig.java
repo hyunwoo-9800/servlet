@@ -19,8 +19,8 @@ public class MyBatisConfig {
 		DriverManagerDataSource ds = new DriverManagerDataSource();
 		ds.setDriverClassName("oracle.jdbc.OracleDriver");
 		ds.setUrl("jdbc:oracle:thin:@localhost:1521:xe"); // 포트/서비스명 확인해서 수정
-		ds.setUsername("c##hw");
-		ds.setPassword("0000");
+		ds.setUsername("c##human");
+		ds.setPassword("human");
 		return ds;
 	}
 

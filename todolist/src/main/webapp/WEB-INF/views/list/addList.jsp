@@ -10,7 +10,10 @@
 
 <body>
 	<form class="add-form"
-		action="${pageContext.request.contextPath}/todo/add" method="post">
+		action="${pageContext.request.contextPath}/todo/add"
+		method="post"
+		accept-charset="UTF-8"
+		>
 		<input type="text" name="content" placeholder="할 일을 입력하세요" required />
 		<button type="submit">추가</button>
 	</form>
