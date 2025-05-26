@@ -4,30 +4,56 @@
 
 <mapper namespace="com.hw.practice.dao.TodoListDao">
 
+	<!-- 모든 리스트 출력 -->
 	<select id="getAllItems"
 		resultType="com.hw.practice.vo.TodoListVO">
 		SELECT
-		ITEMNUM,
-		CONTENT,
-		STATUS
+			ITEMNUM,
+			CONTENT,
+			PRIORITY,
+			STATUS
 		FROM
-		TODOLIST
+			TODOLIST
+		ORDER BY
+    		ITEMNUM
+	</select>
+	
+	<!-- 해당하는 상태 목록만 출력 -->
+	<select id="getTodosByStatus"
+		resultType="com.hw.practice.vo.TodoListVO">
+		SELECT
+			ITEMNUM,
+			CONTENT,
+			PRIORITY,
+			STATUS
+		FROM
+			TODOLIST
+		<where>
+	        <if test="status != null">
+	            STATUS = #{status}
+	        </if>
+    	</where>
+    	ORDER BY
+    		ITEMNUM
 	</select>
 
+	<!-- 할 일 추가 -->
 	<insert id="insertItem"
 		parameterType="com.hw.practice.vo.TodoListVO">
-		INSERT INTO TODOLIST (CONTENT, STATUS)
-		VALUES (#{content}, #{status})
+		INSERT INTO TODOLIST (ITEMNUM, CONTENT, PRIORITY, STATUS)
+		VALUES (todolist_seq.NEXTVAL, #{content}, #{priority}, #{status})
 	</insert>
 
+	<!-- 상태 업데이트 -->
 	<update id="toggleStatus">
 		UPDATE TODOLIST
 		SET STATUS = CASE WHEN STATUS = '1' THEN '0' ELSE '1' END
 		WHERE ITEMNUM = #{itemNum}
 	</update>
 
+	<!-- 할 일 삭제 -->
 	<delete id="deleteItem">
 		DELETE FROM TODOLIST WHERE ITEMNUM = #{itemNum}
 	</delete>
-
+	
 </mapper>

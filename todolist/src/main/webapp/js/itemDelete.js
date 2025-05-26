@@ -2,7 +2,7 @@
  * list.jsp에서 사용할 함수
  */
 
-/* 완료 or 미완료 상태 변경용 */
+/* 할 일 삭제용 */
 document.addEventListener('DOMContentLoaded', function() {
 	// 삭제 버튼들
 	const deleteBtns = document.querySelectorAll('.delete-btn'); // 삭제 버튼들

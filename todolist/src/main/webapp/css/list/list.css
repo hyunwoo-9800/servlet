@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/* 할 일 목록 css */
 .todo-list {
 	max-width: 800px;
 	width: 800px;
@@ -27,6 +28,7 @@
 	gap: 8px; /* 두 텍스트 사이의 간격을 줄여줌 */
 }
 
+/* 상태 css */
 .status-text {
 	margin-right: 400px; /* 간격 줄이기 */
 }
@@ -58,10 +60,48 @@
 	color: white;
 }
 
-/* .delete-btn {
-    color: white;
-  } */
 .delete-btn:hover {
 	/* background-color: rgba(244, 67, 54, 0.1); */
 	background-color: rgba(238, 54, 244, 0.1);
+}
+
+/* 필터 버튼 */
+.filters {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.filters button {
+	background-color: #f1f1f1;
+	color: #333;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	margin: 0 5px;
+	padding: 8px 12px;
+}
+
+.filters button.active {
+	background-color: #4caf50;
+	color: white;
+	border-color: #4caf50;
+}
+
+/* 중요도 뱃지 */
+.priority-badge {
+	flex-grow: 0 !important;
+	padding: 3px 10px;
+	border-radius: 12px;
+	color: white;
+	font-size: 12px;
+	margin-right: 10px;
+	background-color: #ffd54f;
+}
+
+/* 할 일 목록이 없을 경우 */
+.todo-list li.empty-message {
+	text-align: center;
+	color: #999;
+	font-style: italic;
+	padding: 20px;
 }

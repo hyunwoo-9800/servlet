@@ -31,6 +31,7 @@ public class TodoController {
 		return "index";
 	}
 
+	// 상태 업데이트 컨트롤러
 	@PostMapping("/todo/updateStatus")
 	@ResponseBody
 	public Map<String, Object> updateStatus(@RequestBody Map<String, String> request) {
@@ -43,13 +44,16 @@ public class TodoController {
 		return response;
 	}
 
+	// 할 일 추가 컨트롤러
 	@PostMapping("/todo/add")
-	public String addTodo(@RequestParam("content") String content) {
+	public String addTodo(@RequestParam("content") String content,
+						  @RequestParam("priority") String priority) {
 
 		TodoListVO todo = new TodoListVO();
 
-		todo.setContent(content);
-		todo.setStatus("0"); // 기본값: 미완료
+		todo.setContent(content);			// 할 일 내용
+		todo.setPriority(priority);			// 중요도
+		todo.setStatus("0"); 				// 기본값: 미완료
 		
 		System.out.println("입력된 내용: " + content);
 
@@ -58,6 +62,7 @@ public class TodoController {
 		return "redirect:/todo"; // 목록 다시 보기
 	}
 
+	// 할 일 삭제 컨트롤러
 	@PostMapping("/todo/delete")
 	@ResponseBody
 	public Map<String, Object> deleteTodo(@RequestBody Map<String, String> request) {
@@ -67,6 +72,22 @@ public class TodoController {
 		Map<String, Object> response = new HashMap<>();
 		response.put("success", success);
 		return response;
+	}
+	
+	// 필터 처리
+	@GetMapping("/todoList")
+	public String getTodoList(@RequestParam(value = "filter", required = false) String filter, Model model) {
+	    List<TodoListVO> list;
+
+	    if (filter == null || filter.equals("all")) {
+	        list = service.getAllItems();
+	    } else {
+	        int status = Integer.parseInt(filter);
+	        list = service.getTodosByStatus(status);
+	    }
+
+	    model.addAttribute("todoList", list);
+	    return "index";
 	}
 
 } // class 끝

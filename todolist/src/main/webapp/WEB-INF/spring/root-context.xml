@@ -18,8 +18,8 @@
 			value="oracle.jdbc.OracleDriver" />
 		<property name="url"
 			value="jdbc:oracle:thin:@localhost:1521:XE" />
-		<property name="username" value="c##human" />
-		<property name="password" value="human" />
+		<property name="username" value="c##hw" />
+		<property name="password" value="0000" />
 		<property name="maxActive" value="20" />
 		<property name="maxIdle" value="10" />
 		<property name="maxWait" value="10000" />
@@ -44,6 +44,7 @@
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
 
+	<!-- 매퍼 스캔 -->
 	<context:component-scan
 		base-package="com.hw.practice.dao" />
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
