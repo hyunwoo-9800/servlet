@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			// 삭제 요청
 			fetch(window.contextPath + "/todo/delete", {
 				method: 'POST',
-				headers: { 'Content-Type': 'application/json charset utf-8;' },
+				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ itemNum: itemNum })
 			})
 				.then(response => response.json())

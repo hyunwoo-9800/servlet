@@ -103,7 +103,11 @@
 		<script type="text/javascript"
 			src="${pageContext.request.contextPath}/js/statusUpdate.js">
 		</script>
+		
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/importantToggle.js">
+		</script>
+		
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/itemDelete.js">
 		</script>
 	
 	</body>

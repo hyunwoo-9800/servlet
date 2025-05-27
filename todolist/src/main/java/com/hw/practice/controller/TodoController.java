@@ -56,6 +56,7 @@ public class TodoController {
 		todo.setContent(content);			// 할 일 내용
 		todo.setPriority(priority);			// 중요도
 		todo.setCategory(category);			// 카테고리
+		todo.setImportant("0");				// 중요 체크 : 기본값 0
 		todo.setStatus("0"); 				// 기본값: 미완료
 		
 		System.out.println("입력된 내용: " + content);

@@ -114,10 +114,10 @@
   
   
   <select id="searchMember" parameterType="memberVO" resultMap="memResult">
-	     <!-- <include refid="a" />  -->
-	   <![CDATA[
+	    <include refid="a" />  
+<!-- 	   <![CDATA[
          select * from t_member 
-      ]]>
+      ]]> -->
 	  
        <where>
 		  <choose>
@@ -137,10 +137,10 @@
    
    <select id="foreachSelect" resultMap="memResult" parameterType="java.util.Map">
        <include refid="a" />
-      <![CDATA[
+<!--       <![CDATA[
         select * from t_member 
           
-      ]]>
+      ]]> -->
       
       where name in
       <foreach item="item" collection="list" open="(" separator="," close=")" >
