@@ -105,3 +105,18 @@
 	font-style: italic;
 	padding: 20px;
 }
+
+.todo-actions .important {
+	background-color: #ff5252; /* 빨간색 계열 */
+	border: none;
+	cursor: pointer;
+	font-size: 16px;
+	padding: 6px;
+	border-radius: 4px;
+	margin-left: 5px;
+	margin-right: 5px; /* ← 이 줄을 추가해서 오른쪽에서 떨어지게 함 */
+}
+
+.todo-actions .important:hover {
+	background-color: #e53935;
+}

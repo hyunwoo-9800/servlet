@@ -47,12 +47,15 @@ public class TodoController {
 	// 할 일 추가 컨트롤러
 	@PostMapping("/todo/add")
 	public String addTodo(@RequestParam("content") String content,
-						  @RequestParam("priority") String priority) {
+						  @RequestParam("priority") String priority,
+						  @RequestParam("category") String category
+			) {
 
 		TodoListVO todo = new TodoListVO();
 
 		todo.setContent(content);			// 할 일 내용
 		todo.setPriority(priority);			// 중요도
+		todo.setCategory(category);			// 카테고리
 		todo.setStatus("0"); 				// 기본값: 미완료
 		
 		System.out.println("입력된 내용: " + content);
@@ -76,18 +79,53 @@ public class TodoController {
 	
 	// 필터 처리
 	@GetMapping("/todoList")
-	public String getTodoList(@RequestParam(value = "filter", required = false) String filter, Model model) {
-	    List<TodoListVO> list;
+	public String getTodoList(
+	    @RequestParam(value = "filter", required = false) String filter,
+	    @RequestParam(value = "category", required = false) String category,
+	    @RequestParam(value = "priority", required = false) String priority,
+	    @RequestParam(value = "important", required = false) String important,
+	    Model model
+	) {
+	    Map<String, Object> params = new HashMap<>();
 
-	    if (filter == null || filter.equals("all")) {
-	        list = service.getAllItems();
-	    } else {
-	        int status = Integer.parseInt(filter);
-	        list = service.getTodosByStatus(status);
+	    if (filter != null && !filter.equals("all")) {
+	    	
+	        params.put("status", Integer.parseInt(filter));
+	        
+	    }
+	    if (category != null && !category.isEmpty()) {
+	    	
+	        params.put("category", category);
+	        
+	    }
+	    if (priority != null && !priority.isEmpty()) {
+	    	
+	        params.put("priority", priority);
+	        
+	    }
+	    if (important != null && !important.isEmpty()) {
+	    	
+	        params.put("important", Integer.parseInt(important));
+	        
 	    }
 
+	    List<TodoListVO> list = service.getTodosByFilter(params);
 	    model.addAttribute("todoList", list);
 	    return "index";
 	}
-
+	
+	// 중요도 토글 업데이트
+	@PostMapping("/todo/toggleImportant")
+	@ResponseBody
+	public Map<String, Object> toggleImportant(@RequestBody Map<String, Object> request) {
+		
+	    int itemNum = Integer.parseInt(request.get("itemNum").toString());
+	    int current = service.getImportant(itemNum);
+	    int newValue = current == 0 ? 1 : 0;
+	    
+	    service.updateImportant(itemNum, newValue);
+	    return Map.of("success", true);
+	    
+	}
+	
 } // class 끝

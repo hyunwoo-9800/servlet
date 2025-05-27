@@ -1,31 +1,76 @@
-@charset "UTF-8";
-
-/* 할 일 목록 추가용 css */
 .add-form {
-	margin: 0 auto; /* 화면 가운데 정렬 */
-	max-width: 800px; width : 800px;
+	margin: 0 auto;
+	max-width: 800px;
+	width: 100%;
 	margin-bottom: 15px;
 	display: flex;
-	width: 800px;
+	flex-direction: column;
+	gap: 10px;
 }
 
-.add-form input {
+/* 카테고리 버튼 컨테이너 중앙 정렬 */
+.category-buttons {
+	display: flex;
+	justify-content: center;  /* 중앙 정렬 */
+	gap: 15px;
+	margin-bottom: 10px;
+}
+
+/* 카테고리 버튼 크기 확대 */
+.category {
+	background-color: #f0f0f0;
+	border: none;
+	padding: 12px 20px;        /* 내부 여백 키움 */
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 16px;           /* 글자 크기 증가 */
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* 약간의 그림자 효과 */
+}
+
+.category i {
+	font-size: 18px;           /* 아이콘 크기 키움 */
+}
+
+.category.active {
+	background-color: #28a745;
+	color: white;
+}
+
+.input-row {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+.input-row input {
 	flex-grow: 1;
 	padding: 10px;
 	font-size: 16px;
 	border: 1px solid #ddd;
-	border-radius: 4px 0 0 4px;
+	border-radius: 4px;
 }
 
-.add-form button {
+.input-row .priority-select {
+	padding: 10px;
+	font-size: 14px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+.input-row button {
 	padding: 10px 15px;
 	background-color: #4caf50;
 	color: white;
 	border: none;
-	border-radius: 0 4px 4px 0;
+	border-radius: 4px;
 	cursor: pointer;
+	transition: background-color 0.3s;
 }
 
-.add-form button:hover {
+.input-row button:hover {
 	background-color: #45a049;
 }

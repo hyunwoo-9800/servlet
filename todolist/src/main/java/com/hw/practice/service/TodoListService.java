@@ -1,6 +1,7 @@
 package com.hw.practice.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.hw.practice.vo.TodoListVO;
 
@@ -21,6 +22,15 @@ public interface TodoListService {
 
 	// 할 일 삭제
 	public boolean deleteItem(int itemNum);
+	
+	// 중요도만 가져오기
+	int getImportant(int itemNum);
+	
+	// 필터 처리용
+	List<TodoListVO> getTodosByFilter(Map<String, Object> params);
+	
+	// 중요도 업데이트용
+	int updateImportant(int itemNum, int important);
 	
 
 } // 인터페이스 끝

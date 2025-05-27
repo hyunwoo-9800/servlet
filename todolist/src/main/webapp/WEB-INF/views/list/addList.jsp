@@ -8,35 +8,50 @@
 		<title>Add List</title>
 		<link href="${pageContext.request.contextPath}/css/list/addList.css"
 			rel="stylesheet" type="text/css">
+		<link rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+			crossorigin="anonymous" />
 	</head>
 
 	<body>
-		
-		<!-- 할 일 목록 추가용 form -->
+	
 		<form class="add-form"
 			action="${pageContext.request.contextPath}/todo/add" method="post"
 			accept-charset="UTF-8">
-			<input type="text" name="content" placeholder="할 일을 입력하세요" required />
-			
-			<!-- 중요도 선택 박스 -->
-			<select name="priority">
-				<option value="낮음">낮음</option>
-				<option value="보통">보통</option>
-				<option value="높음">높음</option>
-			</select>
-			
-			<button type="submit">추가</button>
+	
+			<!-- 카테고리 버튼 -->
+			<div class="category-buttons">
+				<button type="button" class="category" value="일반">
+					<i class="fa-solid fa-house"></i> 일반
+				</button>
+				<button type="button" class="category" value="업무">
+					<i class="fa-solid fa-briefcase"></i> 업무
+				</button>
+				<button type="button" class="category" value="운동">
+					<i class="fa-solid fa-person-running"></i> 운동
+				</button>
+				<button type="button" class="category" value="개인">
+					<i class="fa-solid fa-user"></i> 개인
+				</button>
+			</div>
+	
+			<input type="hidden" name="category" id="selectedCategory" />
+	
+			<!-- 입력창 + 셀렉트 + 버튼 묶기 -->
+			<div class="input-row">
+				<input type="text" name="content" placeholder="할 일을 입력하세요" required />
+				<select name="priority" class="priority-select">
+					<option value="낮음">낮음</option>
+					<option value="보통">보통</option>
+					<option value="높음">높음</option>
+				</select>
+				<button type="submit">추가</button>
+			</div>
 			
 		</form>
 	
-		<script type="text/javascript">
-			// JS 전역에 contextPath 저장
-			window.contextPath = "${pageContext.request.contextPath}";
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/selectCategory.js">
 		</script>
-		<script type="text/javascript"
-			src="${pageContext.request.contextPath}/js/itemDelete.js">
-		</script>
-		
+	
 	</body>
-
 </html>

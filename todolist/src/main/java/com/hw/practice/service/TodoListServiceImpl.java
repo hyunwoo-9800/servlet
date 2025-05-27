@@ -1,6 +1,7 @@
 package com.hw.practice.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,4 +51,23 @@ public class TodoListServiceImpl implements TodoListService {
 		return dao.getTodosByStatus(status);
 	}
 
+	// 중요도만 가져오기
+	@Override
+	public int getImportant(int itemNum) {
+		// TODO Auto-generated method stub
+		return dao.getImportant(itemNum);
+	}
+	
+	// 필터 처리용
+	@Override
+	public List<TodoListVO> getTodosByFilter(Map<String, Object> params) {
+	    return dao.getTodosByFilter(params);
+	}
+	
+	// 중요 토글 업데이트용
+	@Override
+	public int updateImportant(int itemNum, int important) {
+	    return dao.updateImportant(itemNum, important);
+	}
+	
 } // class 끝
