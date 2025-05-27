@@ -50,14 +50,16 @@
 }
 
 .todo-actions button {
-	background-color: #6936f4;
-	border: none;
-	cursor: pointer;
-	font-size: 14px;
-	padding: 5px 8px;
-	margin-left: 5px;
-	border-radius: 3px;
-	color: white;
+    background-color: #6936f4;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 6px 10px;
+    margin-left: 5px;
+    border-radius: 4px;
+    color: white;
+    display: flex;
+    align-items: center;
 }
 
 .delete-btn:hover {
@@ -98,6 +100,21 @@
 	background-color: #ffd54f;
 }
 
+
+/* 중요도 색상별 스타일 */
+.priority-high {
+  background-color: #e74c3c; /* 빨강 */
+}
+
+.priority-medium {
+  background-color: #f1c40f; /* 노랑 */
+  color: black;
+}
+
+.priority-low {
+  background-color: #2ecc71; /* 초록 */
+}
+
 /* 할 일 목록이 없을 경우 */
 .todo-list li.empty-message {
 	text-align: center;
@@ -107,16 +124,20 @@
 }
 
 .todo-actions .important {
-	background-color: #ff5252; /* 빨간색 계열 */
-	border: none;
-	cursor: pointer;
-	font-size: 16px;
-	padding: 6px;
-	border-radius: 4px;
-	margin-left: 5px;
-	margin-right: 5px; /* ← 이 줄을 추가해서 오른쪽에서 떨어지게 함 */
+    background-color: #ff5252;
+    font-size: 14px;
+    padding: 6px 10px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .todo-actions .important:hover {
-	background-color: #e53935;
+    background-color: #e53935;
+}
+
+.todo-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
 }

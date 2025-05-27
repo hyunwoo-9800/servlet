@@ -56,11 +56,14 @@
 			</c:if>
 	
 			<c:forEach var="todo" items="${todoList}">
-	
+			
+				
 				<li class="todo-item ${todo.status == '1' ? 'completed' : ''}"
 					data-id="${todo.itemNum}">
 					
-					${todo.content}
+					<input type="checkbox" class="status-checkbox" ${todo.status == '1' ? 'checked' : ''} />
+					
+					<span class="todo-content">${todo.content}</span>
 					
 					<span class="status-text">
 						<c:choose>
@@ -85,11 +88,32 @@
 							
 						</button>
 						
-						<span class="priority-badge">${todo.priority}</span>
+						<span class="priority-badge 
+						    ${todo.priority == '높음' ? 'priority-high' : 
+						      todo.priority == '보통' ? 'priority-medium' : 
+						      todo.priority == '낮음' ? 'priority-low' : ''}">
+						    ${todo.priority}
+						</span>
 						<button class="delete-btn" data-id="${todo.itemNum}">삭제</button>
 						
 					</div>
-	
+					
+					<c:if test="${todo.category eq '일반'}">
+						<span><i class="fa-solid fa-house"></i></span>
+					</c:if>
+					
+					<c:if test="${todo.category eq '업무'}">
+						<span><i class="fa-solid fa-briefcase"></i></span>
+					</c:if>
+					
+					<c:if test="${todo.category eq '운동'}">
+						<span><i class="fa-solid fa-person-running"></i></span>
+					</c:if>
+					
+					<c:if test="${todo.category eq '개인'}">
+						<span><i class="fa-solid fa-user"></i></span>
+					</c:if>
+				
 				</li>
 	
 			</c:forEach>
